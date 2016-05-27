@@ -1,0 +1,160 @@
+body{
+	background-image: url('images/tactile_noise.png');
+}
+
+#logo{
+	position: absolute;
+	width: 400px;
+	height: 200px;
+	background-color: green;
+}
+
+#logo img{
+	height:150px;
+	width:300px;
+	margin-left:40px;
+
+}
+
+#Simage{
+	width:463px;
+	height: 200px;
+	margin-left: 400px;
+	background-color: purple;
+}
+
+#Simage img{
+	height:150px;
+	width:300px;
+	margin-left:80px;
+}
+
+#contactdiv{
+	width: 400px;
+	height: 200px;
+	margin-left: 863px;
+	margin-top: -216px;
+	background-color: blue;
+}
+
+#goodland{
+	text-align:center;
+	background-color: orange;
+}
+
+#picture1{
+	position: absolute;
+	margin-top: -25px;
+	background-color: purple;
+	height: 300px;
+	width:400px;
+}
+
+#picture1 img{
+	height: 250px;
+	width:350px;
+}
+
+#picture2{
+	height: 300px;
+	width: 400px;
+	background-color: green;
+	margin-left: 420px;
+	margin-top: -25px;
+}
+
+#picture2 img{
+	height: 250px;
+	width: 350px;
+}
+
+#picture3{
+	height: 300px;
+	width: 400px;
+	background-color: blue;
+	margin-left: 840px;
+	margin-top: -300px;
+}
+
+#picture3 img{
+	height: 250px;
+	width:350px;
+}
+
+#picture4{
+	position: absolute;
+	margin-top: 20px;
+	background-color: blue;
+	height: 300px;
+	width:400px;
+}
+
+#picture4 img{
+	height:250px;
+	width:350px;
+}
+
+#picture5{
+	height: 300px;
+	width: 400px;
+	background-color: purple;
+	margin-left: 420px;
+	margin-top: 20px;
+}
+
+#picture5 img{
+	height:250px;
+	width:350px;
+}
+
+#picture6{
+	height: 300px;
+	width: 400px;
+	background-color: green;
+	margin-left: 840px;
+	margin-top: -300px;
+}
+
+#picture6 img{
+	height:250px;
+	width:350px;
+}
+
+#picture7{
+	position: absolute;
+	margin-top: 20px;
+	background-color: green;
+	height: 300px;
+	width:400px;
+}
+
+#picture7 img{
+	height:250px;
+	width:350px;
+}
+
+#picture8{
+	height: 300px;
+	width: 400px;
+	background-color: blue;
+	margin-left: 420px;
+	margin-top: 20px;
+}
+
+#picture8 img{
+	height:250px;
+	width:350px;
+}
+
+#picture9{
+	height: 300px;
+	width: 400px;
+	background-color: purple;
+	margin-left: 840px;
+	margin-top: -300px;
+}
+
+#picture9 img{
+	height:250px;
+	width:350px;
+}
