@@ -1,3 +1,6 @@
+// Form submission handled by netlify
+// https://www.netlify.com/docs/form-handling/
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import Content, { HTMLContent } from '../components/Content'
@@ -15,6 +18,29 @@ export const ContactPageTemplate = ({ title, content, contentComponent }) => {
                 {title}
               </h2>
               <PageContent className="content" content={content} />
+              <form name="contact" data-netlify="true" netlify-honeypot="text">
+                <p class="hidden">
+                  <input name="text" />
+                </p>
+                <p>
+                  <label>
+                    Name <input type="text" name="name" />
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    Email <input type="email" name="email" />
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    Message <textarea rows="10" cols="50" name="message" />
+                  </label>
+                </p>
+                <p>
+                  <button type="submit">Send</button>
+                </p>
+              </form>
             </div>
           </div>
         </div>
