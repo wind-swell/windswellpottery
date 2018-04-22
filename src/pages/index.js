@@ -1,8 +1,40 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
+import _ from 'lodash'
 
 export default class IndexPage extends React.Component {
+  renderItemsGrid() {
+    const { data } = this.props
+    const { edges: posts } = data.allMarkdownRemark
+
+    return _.flatMap(
+      _.chunk(posts, 2),
+      (postsRow, i) => (
+        <div key={`row-${i}`} className="columns">
+          {postsRow.map(({ node: post }) => (
+            <div
+              className="column is-6"
+              key={post.id}
+            >
+                <Link className="content has-text-primary" to={post.fields.slug}>
+                  <div className="card">
+
+                    <div className="card-image">
+                      <figure className="image">
+                        <img src={post.frontmatter.image} alt={post.frontmatter.title} />
+                      </figure>
+                    </div>
+                      <p className="subtitle">{post.frontmatter.title}</p>
+                  </div>
+                </Link>
+            </div>
+          ))}
+        </div>
+      )
+    )
+  }
+
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
@@ -13,31 +45,7 @@ export default class IndexPage extends React.Component {
           <div className="content">
             {/*<h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>*/}
           </div>
-          {posts
-            .filter(post => post.node.frontmatter.templateKey === "works-post")
-            .map(({ node: post }) => (
-              <div
-                className="content"
-                style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
-                key={post.id}
-              >
-                <p>
-                  <Link className="has-text-primary" to={post.fields.slug}>
-                    {post.frontmatter.title}
-                  </Link>
-                  <span> &bull; </span>
-                  <small>{post.frontmatter.date}</small>
-                </p>
-                <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button is-small" to={post.fields.slug}>
-                    Keep Reading →
-                  </Link>
-                </p>
-              </div>
-            ))}
+          {this.renderItemsGrid()}
         </div>
       </section>
     )
@@ -68,6 +76,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             templateKey
+            image
             date(formatString: "MMMM DD, YYYY")
           }
         }
