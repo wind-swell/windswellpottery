@@ -22,7 +22,7 @@ export default class IndexPage extends React.Component {
 
                     <div className="card-image">
                       <figure className="image">
-                        <img src={post.frontmatter.image} alt={post.frontmatter.title} />
+                        <div style={{ backgroundImage: `url(${post.frontmatter.image})`, backgroundSize: 'cover', height: '22em' }} />
                       </figure>
                     </div>
                       <p className="subtitle">{post.frontmatter.title}</p>

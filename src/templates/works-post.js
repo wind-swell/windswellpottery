@@ -9,6 +9,7 @@ export const WorksPostTemplate = ({
   content,
   contentComponent,
   description,
+  image,
   tags,
   title,
   helmet,
@@ -21,6 +22,11 @@ export const WorksPostTemplate = ({
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
+
+            {image && <figure className="image">
+              <img src={image} />
+            </figure>}
+
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
@@ -28,7 +34,6 @@ export const WorksPostTemplate = ({
             <PostContent content={content} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
                 <ul className="taglist">
                   {tags.map(tag => (
                     <li key={tag + `tag`}>
@@ -48,6 +53,7 @@ export const WorksPostTemplate = ({
 WorksPostTemplate.propTypes = {
   content: PropTypes.string.isRequired,
   contentComponent: PropTypes.func,
+  image: PropTypes.string,
   description: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.instanceOf(Helmet),
@@ -60,6 +66,7 @@ const WorksPost = ({ data }) => {
     <WorksPostTemplate
       content={post.html}
       contentComponent={HTMLContent}
+      image={post.frontmatter.image}
       description={post.frontmatter.description}
       helmet={<Helmet title={`${post.frontmatter.title} | Works`} />}
       tags={post.frontmatter.tags}
@@ -83,6 +90,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
+        image
         title
         description
         tags
