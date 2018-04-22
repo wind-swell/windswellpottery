@@ -9,6 +9,11 @@
   background-color: $body-background-color;
 }
 
+.section,
+.hero-body {
+  padding-top: 1rem;
+}
+
 .box {
   background-color: $background;
 }
@@ -55,8 +60,8 @@
 
 .card {
   box-shadow: none;
-  border: 1px solid $border;
-  background-color: darken($body-background-color, 1);
+  background-color: $body-background-color;
+  border: 1px solid transparent;
   border-radius: $radius;
 
   .card-image {
@@ -80,6 +85,11 @@
     border-width: 1px;
     border-color: $border;
   }
+}
+
+.card:hover {
+  border: 1px solid $border;
+  background-color: darken($body-background-color, 1);
 }
 
 .modal-card-body {
@@ -137,5 +147,22 @@
     li.is-active a {
       background-color: $background;
     }
+  }
+}
+
+.content {
+  figure  {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.navbar-item img {
+  max-height: 4rem;
+}
+
+@include touch {
+  .navbar-brand {
+    justify-content: center;
   }
 }

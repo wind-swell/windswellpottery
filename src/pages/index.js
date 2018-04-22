@@ -19,7 +19,6 @@ export default class IndexPage extends React.Component {
             >
                 <Link className="content has-text-primary" to={post.fields.slug}>
                   <div className="card">
-
                     <div className="card-image">
                       <figure className="image">
                         <div style={{ backgroundImage: `url(${post.frontmatter.image})`, backgroundSize: 'cover', height: '22em' }} />

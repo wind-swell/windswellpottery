@@ -1,6 +1,10 @@
 // Form submission handled by netlify
 // https://www.netlify.com/docs/form-handling/
 
+// TODO make it work better
+// https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
+// https://github.com/imorente/gatsby-netlify-form-example/blob/master/src/pages/contact.js
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import Content, { HTMLContent } from '../components/Content'
@@ -19,27 +23,39 @@ export const ContactPageTemplate = ({ title, content, contentComponent }) => {
               </h2>
               <PageContent className="content" content={content} />
               <form name="contact" data-netlify="true" netlify-honeypot="text">
-                <p class="hidden">
+                <div className="field hidden">
                   <input name="text" />
-                </p>
-                <p>
-                  <label>
-                    Name <input type="text" name="name" />
-                  </label>
-                </p>
-                <p>
-                  <label>
-                    Email <input type="email" name="email" />
-                  </label>
-                </p>
-                <p>
-                  <label>
-                    Message <textarea rows="10" cols="50" name="message" />
-                  </label>
-                </p>
-                <p>
-                  <button type="submit">Send</button>
-                </p>
+                </div>
+
+                <div className="field">
+                  <label className="label">Name</label>
+                  <div className="control">
+                    <input className="input" type="text" />
+                  </div>
+                </div>
+
+
+                <div className="field">
+                  <label className="label">Email</label>
+                  <div className="control">
+                    <input className="input" type="email" />
+                  </div>
+                </div>
+
+
+                <div className="field">
+                  <label className="label">Message</label>
+                  <div className="control">
+                    <textarea className="textarea"></textarea>
+                  </div>
+                </div>
+
+
+                <div className="field is-grouped">
+                  <div className="control">
+                    <button className="button is-link">Submit</button>
+                  </div>
+                </div>
               </form>
             </div>
           </div>

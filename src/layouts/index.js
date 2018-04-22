@@ -6,11 +6,20 @@ import Navbar from '../components/Navbar'
 import './all.sass'
 
 const TemplateWrapper = ({ children }) => (
-  <div>
+  <section className="hero">
     <Helmet title="Wind Swell" />
-    <Navbar />
-    <div>{children()}</div>
-  </div>
+    <div className="hero-head">
+      <Navbar />
+    </div>
+    <div className="hero-body">
+      {children()}
+    </div>
+    <div className="hero-foot">
+      <div className="container">
+        <small><cite>&copy; Copyright {(new Date()).getFullYear()} Will Simons. All rights reserved.</cite></small>
+      </div>
+    </div>
+  </section>
 )
 
 TemplateWrapper.propTypes = {

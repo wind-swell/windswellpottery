@@ -4,20 +4,18 @@ import Link from 'gatsby-link'
 import logo from '../img/logo.png'
 
 const Navbar = () => (
-  <nav className="navbar is-transparent">
+  <nav className="navbar">
     <div className="container">
       <div className="navbar-brand">
-        <Link to="/">
-          <figure className="image">
-              <img src={logo} alt="Wind Swell" style={{ width: '500px', height: '70px' }} />
-          </figure>
+        <Link to="/" className="navbar-item">
+          <img src={logo} alt="Wind Swell" />
         </Link>
       </div>
       <div className="navbar-end">
-        <Link className="navbar-item" to="/about">
+        <Link className="navbar-item has-text-centered-touch" to="/about">
           About
         </Link>
-        <Link className="navbar-item" to="/contact">
+        <Link className="navbar-item has-text-centered-touch" to="/contact">
           Contact
         </Link>
       </div>
