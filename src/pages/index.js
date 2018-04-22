@@ -21,10 +21,10 @@ export default class IndexPage extends React.Component {
                   <div className="card">
                     <div className="card-image">
                       <figure className="image">
-                        <div style={{ backgroundImage: `url(${post.frontmatter.image})`, backgroundSize: 'cover', height: '22em' }} />
+                        <div className="grid-image" style={{ backgroundImage: `url(${post.frontmatter.image})` }} />
                       </figure>
                     </div>
-                      <p className="subtitle">{post.frontmatter.title}</p>
+                    <p className="card-title">{post.frontmatter.title}</p>
                   </div>
                 </Link>
             </div>

@@ -15,8 +15,8 @@ const TemplateWrapper = ({ children }) => (
       {children()}
     </div>
     <div className="hero-foot">
-      <div className="container">
-        <small><cite>&copy; Copyright {(new Date()).getFullYear()} Will Simons. All rights reserved.</cite></small>
+      <div className="copyright is-size-7 has-text-light has-text-right is-italic has-text-weight-light">
+        &copy; Copyright {(new Date()).getFullYear()} Will Simons. All rights reserved.
       </div>
     </div>
   </section>

@@ -27,13 +27,16 @@ export const WorksPostTemplate = ({
               <img src={image} />
             </figure>}
 
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+            <h1 className="title is-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
+            <p className="subtitle is-4">{description}</p>
+
+            <PostContent content={content} className="content is-size-5" />
+
             {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
+              <div className="is-size-7">
+                <span className="is-7">Tagged with:</span>
                 <ul className="taglist">
                   {tags.map(tag => (
                     <li key={tag + `tag`}>

@@ -1,6 +1,10 @@
 // Overrides
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
 
+html {
+  font-size: 16px;
+}
+
 .section {
   background-color: $body-background-color;
 }
@@ -11,7 +15,13 @@
 
 .section,
 .hero-body {
-  padding-top: 1rem;
+  padding: 1rem 1.5rem;
+}
+
+.hero-foot {
+  .copyright {
+    padding: 0 0.5rem 0.5rem 0;
+  }
 }
 
 .box {
@@ -61,10 +71,10 @@
 .card {
   box-shadow: none;
   background-color: $body-background-color;
-  border: 1px solid transparent;
   border-radius: $radius;
 
   .card-image {
+    border: 1px solid transparent;
     img {
       border-radius: $radius $radius 0 0;
     }
@@ -76,6 +86,11 @@
     border-radius: $radius $radius 0 0;
   }
 
+  .card-title {
+    color: $primary;
+    font-weight: bold;
+  }
+
   .card-footer {
     background-color: darken($body-background-color, 3);
   }
@@ -84,12 +99,21 @@
   .card-footer-item {
     border-width: 1px;
     border-color: $border;
+    color: $orange;
   }
 }
 
 .card:hover {
-  border: 1px solid $border;
-  background-color: darken($body-background-color, 1);
+  .card-image {
+    border: 1px solid $border;
+    img {
+      border-radius: $radius $radius 0 0;
+    }
+  }
+  .card-title {
+    color: lighten($primary, 6);
+    // font-weight: normal;
+  }
 }
 
 .modal-card-body {
@@ -165,4 +189,9 @@
   .navbar-brand {
     justify-content: center;
   }
+}
+
+.grid-image {
+  background-size: cover;
+  min-height: 22rem;
 }
