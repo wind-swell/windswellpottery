@@ -1,6 +1,5 @@
 ---
-templateKey: 'contact-page'
-path: /contact
+templateKey: contact-page
 title: Contact
 ---
-### Get in touch 🤙
+### Get in Touch
