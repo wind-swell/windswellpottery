@@ -1,37 +1,47 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
+import Img from "gatsby-image";
+import StackGrid, { transitions, easings } from "react-stack-grid";
 import _ from 'lodash'
+
+const transition = transitions.fade;
 
 export default class IndexPage extends React.Component {
   renderItemsGrid() {
-    const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
+      const { data } = this.props
+      const { edges: posts } = data.allMarkdownRemark
 
-    return _.flatMap(
-      _.chunk(posts, 2),
-      (postsRow, i) => (
-        <div key={`row-${i}`} className="columns">
-          {postsRow.map(({ node: post }) => (
-            <div
-              className="column is-6"
-              key={post.id}
-            >
-                <Link className="content has-text-primary" to={post.fields.slug}>
-                  <div className="card">
-                    <div className="card-image">
-                      <figure className="image">
-                        <div className="grid-image" style={{ backgroundImage: `url(${post.frontmatter.image})` }} />
-                      </figure>
-                    </div>
-                    <p className="card-title">{post.frontmatter.title}</p>
-                  </div>
-                </Link>
-            </div>
-          ))}
-        </div>
+      const items = posts.map(({ node: post }) => (
+        <Link className="content has-text-primary" to={post.fields.slug}>
+          <figure
+            key={post.id}
+            className="image"
+          >
+            <Img sizes={post.frontmatter.image.childImageSharp.sizes} />
+            <figcaption>{post.frontmatter.title}</figcaption>
+          </figure>
+        </Link>
+      ))
+
+      return (
+        <StackGrid
+          monitorImagesLoaded
+          columnWidth={400}
+          duration={700}
+          gutterWidth={15}
+          gutterHeight={15}
+          easing={easings.cubicOut}
+          appearDelay={70}
+          appear={transition.appear}
+          appeared={transition.appeared}
+          enter={transition.enter}
+          entered={transition.entered}
+          leaved={transition.leaved}
+        >
+          {items}
+        </StackGrid>
       )
-    )
   }
 
   render() {
@@ -41,11 +51,9 @@ export default class IndexPage extends React.Component {
     return (
       <section className="section">
         <div className="container">
-          <div className="content">
-            {/*<h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>*/}
-          </div>
-          {this.renderItemsGrid()}
+
         </div>
+          {this.renderItemsGrid()}
       </section>
     )
   }
@@ -61,10 +69,7 @@ IndexPage.propTypes = {
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter:  { templateKey: { eq: "works-post" }}}
-    ) {
+    allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {templateKey: {eq: "works-post"}}}) {
       edges {
         node {
           excerpt(pruneLength: 400)
@@ -75,7 +80,16 @@ export const pageQuery = graphql`
           frontmatter {
             title
             templateKey
-            image
+            image {
+              id
+              prettySize
+              size
+              childImageSharp {
+                sizes(maxWidth: 700) {
+                  ...GatsbyImageSharpSizes_noBase64
+                }
+              }
+            }
             date(formatString: "MMMM DD, YYYY")
           }
         }

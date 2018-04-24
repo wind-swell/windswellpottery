@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
+import Img from "gatsby-image";
 import Content, { HTMLContent } from '../components/Content'
 
 export const WorksPostTemplate = ({
@@ -23,8 +24,8 @@ export const WorksPostTemplate = ({
         <div className="columns">
           <div className="column is-10 is-offset-1">
 
-            {image && <figure className="image">
-              <img src={image} />
+            {image && image.childImageSharp.sizes && <figure className="image">
+              <Img sizes={image.childImageSharp.sizes} />
             </figure>}
 
             <h1 className="title is-2 has-text-weight-bold is-bold-light">
@@ -93,7 +94,16 @@ export const pageQuery = graphql`
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
-        image
+        image {
+          id
+          prettySize
+          size
+          childImageSharp {
+            sizes(maxWidth: 700) {
+              ...GatsbyImageSharpSizes_noBase64
+            }
+          }
+        }
         title
         description
         tags

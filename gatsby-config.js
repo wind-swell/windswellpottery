@@ -1,3 +1,6 @@
+const autoprefixer = require('autoprefixer');
+const pixrem = require('pixrem');
+
 module.exports = {
   siteMetadata: {
     title: 'Wind Swell',
@@ -5,7 +8,6 @@ module.exports = {
   plugins: [
     'gatsby-plugin-lodash',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -26,7 +28,38 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          // gatsby-remark-relative-images must
+          // go before gatsby-remark-images
+          {
+            resolve: `gatsby-remark-relative-images`,
+            options: {
+              // Set the name option to the same
+              // name you set for gatsby-source-filesystem
+              name: 'images',
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 800,
+            },
+          },
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-postcss-sass',
+      options: {
+        postCssPlugins: [
+          pixrem(),
+          autoprefixer({
+            browsers: ['last 2 versions']
+          }),
+        ],
+        precision: 8,
       },
     },
     {
