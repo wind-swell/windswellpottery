@@ -2,60 +2,57 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Img from "gatsby-image";
-import StackGrid, { transitions, easings } from "react-stack-grid";
 import _ from 'lodash'
 
-const transition = transitions.fade;
+// stack grid breaks SSR
+let StackGrid = null
+if (typeof window !== `undefined`) {
+  StackGrid = require("react-stack-grid").default;
+}
 
 export default class IndexPage extends React.Component {
-  renderItemsGrid() {
-      const { data } = this.props
-      const { edges: posts } = data.allMarkdownRemark
+  render() {
+    const { data } = this.props
+    const { edges: posts } = data.allMarkdownRemark
 
-      const items = posts.map(({ node: post }) => (
-        <Link className="content has-text-primary" to={post.fields.slug}>
-          <figure
-            key={post.id}
-            className="image"
-          >
-            <Img sizes={post.frontmatter.image.childImageSharp.sizes} />
+    // Custom server render
+    if (typeof window == `undefined`) {
+      const items = posts.slice(0, 4).map(({ node: post }) => (
+        <Link key={post.id} to={post.fields.slug}>
+          <figure className="image">
+          <Img sizes={post.frontmatter.image.childImageSharp.sizes} />
             <figcaption>{post.frontmatter.title}</figcaption>
           </figure>
         </Link>
       ))
 
       return (
-        <StackGrid
-          monitorImagesLoaded
-          columnWidth={400}
-          duration={700}
-          gutterWidth={15}
-          gutterHeight={15}
-          easing={easings.cubicOut}
-          appearDelay={70}
-          appear={transition.appear}
-          appeared={transition.appeared}
-          enter={transition.enter}
-          entered={transition.entered}
-          leaved={transition.leaved}
-        >
+        <div style={{ visibility: 'hidden' }}>
           {items}
-        </StackGrid>
+        </div>
       )
-  }
+    }
 
-  render() {
-    const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
+    const items = posts.map(({ node: post }) => (
+      <Link key={post.id} className="content has-text-primary" to={post.fields.slug}>
+        <figure className="image">
+          <Img sizes={post.frontmatter.image.childImageSharp.sizes} />
+          <figcaption>{post.frontmatter.title}</figcaption>
+        </figure>
+      </Link>
+    ))
 
     return (
-      <section className="section">
-        <div className="container">
-
-        </div>
-          {this.renderItemsGrid()}
-      </section>
-    )
+      <StackGrid
+        monitorImagesLoaded
+        columnWidth={400}
+        duration={0}
+        gutterWidth={15}
+        gutterHeight={15}
+      >
+        {items}
+      </StackGrid>
+    );
   }
 }
 
@@ -85,8 +82,8 @@ export const pageQuery = graphql`
               prettySize
               size
               childImageSharp {
-                sizes(maxWidth: 700) {
-                  ...GatsbyImageSharpSizes_noBase64
+                sizes(maxWidth: 500) {
+                  ...GatsbyImageSharpSizes_withWebp_noBase64
                 }
               }
             }

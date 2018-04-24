@@ -99,8 +99,8 @@ export const pageQuery = graphql`
           prettySize
           size
           childImageSharp {
-            sizes(maxWidth: 700) {
-              ...GatsbyImageSharpSizes_noBase64
+            sizes(maxWidth: 800) {
+              ...GatsbyImageSharpSizes_withWebp_noBase64
             }
           }
         }
