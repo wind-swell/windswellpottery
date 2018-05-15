@@ -4,6 +4,8 @@ import Link from 'gatsby-link'
 import Img from "gatsby-image";
 import _ from 'lodash'
 
+import {isMobile} from 'react-device-detect';
+
 // stack grid breaks SSR
 let StackGrid = null
 if (typeof window !== `undefined`) {
@@ -41,17 +43,22 @@ export default class IndexPage extends React.Component {
       </Link>
     ))
 
-    return (
-      <StackGrid
-        monitorImagesLoaded
-        columnWidth={400}
-        duration={0}
-        gutterWidth={15}
-        gutterHeight={15}
-      >
-        {items}
-      </StackGrid>
-    );
+    if (isMobile) {
+      return items
+    } else {
+      return (
+        <StackGrid
+          monitorImagesLoaded
+          columnWidth={400}
+          duration={0}
+          gutterWidth={15}
+          gutterHeight={15}
+        >
+          {items}
+        </StackGrid>
+      );
+    }
+
   }
 }
 
