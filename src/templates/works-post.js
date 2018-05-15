@@ -35,18 +35,7 @@ export const WorksPostTemplate = ({
 
             <PostContent content={content} className="content is-size-5" />
 
-            {tags && tags.length ? (
-              <div className="is-size-7">
-                <span className="is-7">Tagged with:</span>
-                <ul className="taglist">
-                  {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
+            <Link to="/">Return</Link>
           </div>
         </div>
       </div>
