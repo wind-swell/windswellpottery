@@ -3937,9 +3937,9 @@ gatsby-remark-images@^1.5.62:
     slash "^1.0.0"
     unist-util-select "^1.5.0"
 
-gatsby-remark-relative-images@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-relative-images/-/gatsby-remark-relative-images-0.0.6.tgz#dc2a30cfe32d118ff28c042fe52b61927d2738ba"
+gatsby-remark-relative-images@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-relative-images/-/gatsby-remark-relative-images-0.1.0.tgz#c70b1e6a26c857e7f95c07ce7aa902d56e1059a8"
   dependencies:
     cheerio "1.0.0-rc.2"
     is-relative-url "2.0.0"
