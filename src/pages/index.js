@@ -36,8 +36,7 @@ export default class IndexPage extends React.Component {
     const items = posts.map(({ node: post }) => (
       <Link key={post.id} className="content has-text-primary" to={post.fields.slug}>
         <figure className="image">
-          <Img sizes={post.frontmatter.image.childImageSharp.sizes} />
-          <figcaption>{post.frontmatter.title}</figcaption>
+          <Img alt={post.frontmatter.title} sizes={post.frontmatter.image.childImageSharp.sizes} />
         </figure>
       </Link>
     ))

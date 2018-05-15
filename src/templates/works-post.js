@@ -17,27 +17,35 @@ export const WorksPostTemplate = ({
 }) => {
   const PostContent = contentComponent || Content
 
+  console.log(image.childImageSharp)
+
+  // <Img imgStyle={{ display: 'none' }} sizes={image.childImageSharp.sizes} onLoad={function(...args) {
+  //   console.log(args, this)
+  // }}/>
+
   return (
     <section className="section">
       {helmet || ''}
       <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
+        {image && image.childImageSharp.sizes && <figure className="image">
+          <div className="work-image" style={{
+            backgroundImage: `url(${image.childImageSharp.sizes.src})`,
+            height: image.childImageSharp.sizes.aspectRatio < 1
+              ? `700px`
+              : '500px',
+            // paddingBottom: `${image.childImageSharp.sizes.aspectRatio * 10}%`
+          }} />
+        </figure>}
 
-            {image && image.childImageSharp.sizes && <figure className="image">
-              <Img sizes={image.childImageSharp.sizes} />
-            </figure>}
-
-            <h1 className="title is-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p className="subtitle is-4">{description}</p>
-
-            <PostContent content={content} className="content is-size-5" />
-
-            <Link to="/">Return</Link>
-          </div>
+        <div className="work-info">
+          <h1 className="title is-5 has-text-weight-bold is-bold-light">
+            {title}
+          </h1>
+          <p className="subtitle is-5">{description}</p>
+          <PostContent content={content} className="content is-size-5" />
+          <Link to="/">Return</Link>
         </div>
+
       </div>
     </section>
   )

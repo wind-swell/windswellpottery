@@ -2,7 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
 
 html {
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .section {
@@ -194,4 +194,26 @@ html {
 // .grid-image {
 //   background-size: cover;
 //   min-height: 22rem;
+// }
+//
+
+.work-image {
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 100%;
+  max-height: 70vh;
+  // height: 500px;
+  // padding-bottom: 56.25% /* 16:9 ratio */
+}
+
+// .work-info {
+//   margin-top: 20em;
+//   margin-left: -5%;
+//   z-index: 100000;
+
+//   @include touch {
+//     margin-top: 0;
+//     margin-left: 0;
+//   }
 // }
