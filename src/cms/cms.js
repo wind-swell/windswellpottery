@@ -1,3 +1,6 @@
+import fetch from 'whatwg-fetch'
+window.fetch = fetch;
+
 import CMS from 'netlify-cms'
 
 import AboutPagePreview from './preview-templates/AboutPagePreview'

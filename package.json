@@ -27,7 +27,8 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-helmet": "^5.2.0",
-    "react-stack-grid": "^0.7.1"
+    "react-stack-grid": "^0.7.1",
+    "whatwg-fetch": "^2.0.4"
   },
   "keywords": [
     "gatsby"
