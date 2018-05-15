@@ -17,8 +17,6 @@ export const WorksPostTemplate = ({
 }) => {
   const PostContent = contentComponent || Content
 
-  console.log(image.childImageSharp)
-
   // <Img imgStyle={{ display: 'none' }} sizes={image.childImageSharp.sizes} onLoad={function(...args) {
   //   console.log(args, this)
   // }}/>
