@@ -23,6 +23,7 @@ export const ContactPageTemplate = ({ title, content, contentComponent }) => {
               </h2>
               <PageContent className="content" content={content} />
               <form name="contact" data-netlify="true" netlify-honeypot="text">
+                <input type="hidden" name="form-name" value="contact" />
                 <div className="field hidden">
                   <input name="text" />
                 </div>
@@ -30,7 +31,7 @@ export const ContactPageTemplate = ({ title, content, contentComponent }) => {
                 <div className="field">
                   <label className="label">Name</label>
                   <div className="control">
-                    <input className="input" type="text" />
+                    <input name="name" className="input" type="text" />
                   </div>
                 </div>
 
@@ -38,7 +39,7 @@ export const ContactPageTemplate = ({ title, content, contentComponent }) => {
                 <div className="field">
                   <label className="label">Email</label>
                   <div className="control">
-                    <input className="input" type="email" />
+                    <input name="email" className="input" type="email" />
                   </div>
                 </div>
 
@@ -46,7 +47,7 @@ export const ContactPageTemplate = ({ title, content, contentComponent }) => {
                 <div className="field">
                   <label className="label">Message</label>
                   <div className="control">
-                    <textarea className="textarea"></textarea>
+                    <textarea name="message" className="textarea"></textarea>
                   </div>
                 </div>
 
