@@ -2,4 +2,4 @@
 templateKey: about-page
 title: About
 ---
-### Wind Swell Studio produces the coolest ceramic shit in the world!
+### Windswell Studio produces hand crafted objects in wood, metal and ceramic. Please contact us with any questions or comments.
