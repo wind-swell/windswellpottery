@@ -1,8 +1,8 @@
 ---
 templateKey: works-post
 title: Interior IV
-date: '2018-06-29T12:01:00-04:00'
-image: /img/ws5.jpg
+date: '2018-06-29T12:09:51-04:00'
+image: /img/ws6.jpg
 description: 'steel, stoneware. 2018'
 tags:
   - sculpture
