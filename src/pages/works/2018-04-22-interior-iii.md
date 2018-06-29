@@ -7,4 +7,4 @@ description: 'steel, stoneware. 2017'
 tags:
   - Sculpture
 ---
-15"x22"
+22"x22"x15"
