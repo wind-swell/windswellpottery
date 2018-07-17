@@ -8,6 +8,8 @@ module.exports = {
   plugins: [
     'gatsby-plugin-lodash',
     'gatsby-plugin-react-helmet',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -22,8 +24,6 @@ module.exports = {
         name: 'images',
       },
     },
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -31,7 +31,7 @@ module.exports = {
           // gatsby-remark-relative-images must
           // go before gatsby-remark-images
           {
-            resolve: `gatsby-remark-relative-images`,
+            resolve: 'gatsby-remark-relative-images',
             options: {
               // Set the name option to the same
               // name you set for gatsby-source-filesystem
