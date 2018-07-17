@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
+import { kebabCase, get } from 'lodash'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import Img from "gatsby-image";
 import Content, { HTMLContent } from '../components/Content'
+
+const getImageSizes = (node = {}) => get(node, 'childImageSharp.sizes', {})
 
 export const WorksPostTemplate = ({
   content,
@@ -21,14 +23,16 @@ export const WorksPostTemplate = ({
   //   console.log(args, this)
   // }}/>
 
+  const sizes = getImageSizes(image)
+
   return (
     <section className="section">
       {helmet || ''}
       <div className="container content">
-        {image && image.childImageSharp.sizes && <figure className="image">
+        {image && <figure className="image">
           <div className="work-image" style={{
-            backgroundImage: `url(${image.childImageSharp.sizes.src})`,
-            height: image.childImageSharp.sizes.aspectRatio < 1
+            backgroundImage: `url(${sizes.src})`,
+            height: sizes.aspectRatio < 1
               ? `700px`
               : '500px',
             // paddingBottom: `${image.childImageSharp.sizes.aspectRatio * 10}%`
@@ -52,10 +56,14 @@ export const WorksPostTemplate = ({
 WorksPostTemplate.propTypes = {
   content: PropTypes.string.isRequired,
   contentComponent: PropTypes.func,
-  image: PropTypes.string,
+  image: PropTypes.shape({
+    childImageSharp: PropTypes.shape({
+      sizes: PropTypes.object
+    })
+  }),
   description: PropTypes.string,
   title: PropTypes.string,
-  helmet: PropTypes.instanceOf(Helmet),
+  helmet: PropTypes.node,
 }
 
 const WorksPost = ({ data }) => {

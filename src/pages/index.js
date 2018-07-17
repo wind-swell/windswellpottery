@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Img from "gatsby-image";
-import _ from 'lodash'
+import { get } from 'lodash'
 
 import {isMobile} from 'react-device-detect';
 
@@ -11,6 +11,8 @@ let StackGrid = null
 if (typeof window !== `undefined`) {
   StackGrid = require("react-stack-grid").default;
 }
+
+const getFrontmatterImageSizes = (node = {}) => get(node, 'frontmatter.image.childImageSharp.sizes', {})
 
 export default class IndexPage extends React.Component {
   render() {
@@ -22,7 +24,7 @@ export default class IndexPage extends React.Component {
       const items = posts.slice(0, 4).map(({ node: post }) => (
         <Link key={post.id} to={post.fields.slug}>
           <figure className="image">
-          <Img sizes={post.frontmatter.image.childImageSharp.sizes} />
+          <Img sizes={getFrontmatterImageSizes(post)} />
             <figcaption>{post.frontmatter.title}</figcaption>
           </figure>
         </Link>
@@ -38,7 +40,7 @@ export default class IndexPage extends React.Component {
     const items = posts.map(({ node: post }) => (
       <Link key={post.id} className="content has-text-primary" to={post.fields.slug}>
         <figure className="image">
-          <Img alt={post.frontmatter.title} sizes={post.frontmatter.image.childImageSharp.sizes} />
+          <Img alt={post.frontmatter.title} sizes={getFrontmatterImageSizes(post)} />
         </figure>
       </Link>
     ))
