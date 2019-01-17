@@ -9,6 +9,6 @@ description: |+
 
 
 tags:
-  - ''
+  - sculpture
 ---
 42"x52"x71"
