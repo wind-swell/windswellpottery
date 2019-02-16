@@ -17,11 +17,11 @@ $primary: $orange !default;
 
 $dark: darken($grey-darker, 3);
 
-$title-color: $grey-lighter;
+$title-color: $grey-darker;
 $title-weight: 400;
-$subtitle-strong-color: $grey-lighter;
-$subtitle-color: darken($grey-lighter, 10);
-$subtitle-strong-color: darken($grey-lighter, 10);
+$subtitle-strong-color: $grey-darker;
+$subtitle-color: $grey-dark;
+$subtitle-strong-color: $grey;
 
 $background: $grey-lighter;
 $body-background-color: $grey-lighter;
@@ -34,12 +34,12 @@ $text: $grey-dark;
 $text-strong: $grey-darker;
 $text-light: $grey;
 
-$link: $grey-light;
-$link-hover: $grey-lighter;
-$link-focus: $grey-lighter;
-$link-active: $grey-lighter;
+$link: $grey;
+$link-hover: $grey-dark;
+$link-focus: $grey-darker;
+$link-active: $grey-light;
 
-$button-color: $grey-lighter;
+$button-color: $grey-dark;
 $button-background-color: $grey;
 $button-border-color: $grey;
 
