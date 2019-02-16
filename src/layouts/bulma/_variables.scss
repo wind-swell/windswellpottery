@@ -23,16 +23,16 @@ $subtitle-strong-color: $grey-lighter;
 $subtitle-color: darken($grey-lighter, 10);
 $subtitle-strong-color: darken($grey-lighter, 10);
 
-$background: $grey-dark;
+$background: $grey-lighter;
 $body-background-color: $grey-lighter;
 
 $border: $grey;
 
 $family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-$text: $grey-lighter;
-$text-strong: darken($grey-lighter, 10);
-$text-light: $grey-light;
+$text: $grey-dark;
+$text-strong: $grey-darker;
+$text-light: $grey;
 
 $link: $grey-light;
 $link-hover: $grey-lighter;
