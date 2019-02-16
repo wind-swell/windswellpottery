@@ -22,11 +22,13 @@ export const ContactPageTemplate = ({ title, content, contentComponent }) => {
                 {title}
               </h2>
               <PageContent className="content" content={content} />
-              <form name="contact" data-netlify="true" netlify-honeypot="text">
+              <form name="contact" data-netlify="true" data-netlify-honeypot="input">
+                {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
                 <input type="hidden" name="form-name" value="contact" />
-                <div className="field hidden">
-                  <input name="text" />
-                </div>
+
+                <p hidden>
+                  <input name="input" />
+                </p>
 
                 <div className="field">
                   <label className="label">Name</label>
