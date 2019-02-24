@@ -1,7 +1,7 @@
 ---
 templateKey: works-post
 title: Interior IV
-date: '2019-01-17T16:52:11-05:00'
+date: '2018-06-29T16:52:00-04:00'
 image: /img/ws6.jpg
 description: |+
   steel, stoneware. 2018
