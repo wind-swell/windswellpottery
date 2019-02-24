@@ -2,9 +2,9 @@
 templateKey: works-post
 title: Interior III
 date: '2018-05-15T00:53:16-04:00'
-image: /img/ws_interiorii_2017.jpg
+image: /img/dsc_4839_1.jpg
 description: 'steel, stoneware. 2017'
 tags:
-  - Sculpture
+  - sculpture
 ---
-22"x22"x15"
+22 x 22 x 15 in.
