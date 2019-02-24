@@ -7,4 +7,4 @@ description: 'steel, stoneware. 2018'
 tags:
   - sculpture
 ---
-42"x52"x71"
+42 x 52 x 71 in.
