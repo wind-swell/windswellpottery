@@ -7,4 +7,4 @@ description: stoneware. 2017
 tags:
   - Sculpture
 ---
-9"x9"x36"
+9 x 9 x 36 in.
