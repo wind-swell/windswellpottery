@@ -2,7 +2,7 @@
 templateKey: works-post
 title: Support System
 date: '2019-04-29T11:55:10-04:00'
-image: /img/dsc_6422.jpg
+image: /img/dsc_6382.jpg
 description: 'earthenware, steel, wood. 2018'
 tags:
   - sculpture
