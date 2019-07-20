@@ -1,5 +1,5 @@
 ---
 templateKey: contact-page
-title: Contact
+title: 'Contact (Name, Email, Message)'
 ---
-###
+### Name, Email, Message
